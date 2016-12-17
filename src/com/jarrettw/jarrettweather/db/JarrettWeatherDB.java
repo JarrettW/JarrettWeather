@@ -3,14 +3,15 @@ package com.jarrettw.jarrettweather.db;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.jarrettw.jarrettweather.model.City;
-import com.jarrettw.jarrettweather.model.District;
-import com.jarrettw.jarrettweather.model.Province;
-
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+
+import com.jarrettw.jarrettweather.model.City;
+import com.jarrettw.jarrettweather.model.District;
+import com.jarrettw.jarrettweather.model.Province;
+import com.jarrettw.jarrettweather.utility.LogUtil;
 
 //作用：封装常用数据库操作
 public class JarrettWeatherDB {
@@ -71,7 +72,7 @@ public class JarrettWeatherDB {
 		values.put("city_name", city.getCityName());
 		values.put("province_id", city.getProvinceId());
 		db.insert("City", null, values);
-//		LogUtil.log("JarrettWeatherDB", "city_id = " + city.getId() + "\tcity_name = " + city.getCityName() + "\tprovince_id = " + city.getProvinceId(), LogUtil.NOTHING);
+		LogUtil.log("JarrettWeatherDB", "city_id = " + city.getId() + "\tcity_name = " + city.getCityName() + "\tprovince_id = " + city.getProvinceId());
 	}
 	
 	//从数据库读取全省内的城市信息
@@ -99,7 +100,7 @@ public class JarrettWeatherDB {
 		values.put("district_name", district.getDistrictName());
 		values.put("city_id", district.getCityId());
 		db.insert("District", null, values);
-//		LogUtil.log("JarrettWeatherDB", "#################\ndistrict_id = " + district.getId() + "\ndistrict_name = " + city.getDistrictName() + "\ncity_id = " + city.getCityId(), LogUtil.NOTHING);
+		LogUtil.log("JarrettWeatherDB", "#################\ndistrict_id = " + district.getDistrictId() + "\ndistrict_name = " + district.getDistrictName() + "\ncity_id = " + district.getCityId());
 	}
 	
 	//从数据路读取某城市下的所有县信息
