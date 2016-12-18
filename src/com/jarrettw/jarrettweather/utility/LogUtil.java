@@ -18,7 +18,7 @@ public class LogUtil {
 	
 	public static final int NOTHING = 6;
 	
-	public static int LEVEL = VERBOSE;
+	public static int LEVEL = NOTHING;
 	
 	public static void log(String tag, String msg){
 			switch(LEVEL){

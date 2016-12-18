@@ -44,7 +44,7 @@ public class JarrettWeatherDB {
 	public synchronized void saveProvince(Province province){
 		ContentValues values = new ContentValues();
 		values.put("province_name", province.getProvinceName());
-		db.insert(DB_NAME, null, values);
+		db.insert("Province", null, values);
 	}
 	
 	//从数据库读取全国所有的省份信息

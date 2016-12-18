@@ -33,7 +33,7 @@ public class AutoUpdateService extends Service{
 			}
 		}).start();
 		AlarmManager manager = (AlarmManager)getSystemService(ALARM_SERVICE);
-		int threeHour = 3 * 60 * 60 * 1000; //这是3消失的毫秒数
+		int threeHour = 3 * 60 * 60 * 1000; //这是3小时的毫秒数
 		long triggerAtTime = SystemClock.elapsedRealtime() + threeHour;
 		Intent intent1 = new Intent(this, AutoUpdateReceiver.class);
 		PendingIntent pi = PendingIntent.getBroadcast(this, 0, intent1, 0);
@@ -46,7 +46,7 @@ public class AutoUpdateService extends Service{
 		SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
 		String name = preferences.getString("county_name", "");
 		try{
-			String address = "http://v.juhe.cn/weather/index?format=2&cityname=" + URLEncoder.encode(name, "UTF-8") + "&key77f1a93df176f0db8c1910b6bfe51e90";
+			String address = "http://v.juhe.cn/weather/index?format=2&cityname=" + URLEncoder.encode(name, "UTF-8") + "&key=77f1a93df176f0db8c1910b6bfe51e90";
 			HttpUtil.sendHttpRequest(address, new HttpCallbackListener(){
 				@Override
 				public void onFinish(InputStream in){
